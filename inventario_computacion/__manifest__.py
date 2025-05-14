@@ -6,7 +6,7 @@
         Este módulo permite gestionar el inventario de equipos de computación,
         incluyendo laptops, PCs y componentes, con seguimiento de ubicación y seriales únicos.
     """,
-    'author': "Tu Nombre",
+    'author': "Alex27", #printf("hola mundo"):
     'website': "tu_sitio_web.com",
     'category': 'Inventory',
     'depends': ['stock'],
