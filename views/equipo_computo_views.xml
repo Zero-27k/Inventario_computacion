@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_equipo_computo_form" model="ir.ui.view">
+        <field name="name">inventario.equipo_computo.form</field>
+        <field name="model">inventario.equipo_computo</field>
+        <field name="arch" type="xml">
+            <form string="Equipo de Computación">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="serial"/>
+                            <field name="tipo"/>
+                            <field name="fecha_adquisicion"/>
+                        </group>
+                        <group>
+                            <field name="ubicacion"/>
+                            <field name="marca"/>
+                            <field name="modelo"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Detalles Técnicos">
+                            <group>
+                                <field name="procesador"/>
+                                <field name="memoria_ram"/>
+                                <field name="disco_duro"/>
+                                <field name="sistema_operativo"/>
+                            </group>
+                        </page>
+                        <page string="Descripción">
+                            <field name="descripcion" widget="html"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_equipo_computo_list" model="ir.ui.view">
+        <field name="name">inventario.equipo_computo.list</field>
+        <field name="model">inventario.equipo_computo</field>
+        <field name="arch" type="xml">
+            <list string="Equipos de Computación">
+                <field name="serial"/>
+                <field name="tipo"/>
+                <field name="ubicacion"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_equipo_computo_kanban" model="ir.ui.view">
+        <field name="name">inventario.equipo_computo.kanban</field>
+        <field name="model">inventario.equipo_computo</field>
+        <field name="arch" type="xml">
+            <card string="Equipos de Computación">
+                <field name="serial"/>
+                <field name="tipo"/>
+                <field name="ubicacion"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_kanban_record">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_title">
+                                    <strong><field name="serial"/></strong>
+                                </div>
+                                <span class="o_kanban_record_subtitle"><field name="tipo"/></span>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="ubicacion"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </card>
+        </field>
+    </record>
+
+    <record id="action_equipo_computo" model="ir.actions.act_window">
+        <field name="name">Equipos de Computación</field>
+        <field name="res_model">inventario.equipo_computo</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea tu primer equipo de computación.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_inventario_computacion_root"
+              name="Inventario Computación"
+              sequence="10"/>
+
+    <menuitem id="menu_equipos_computacion"
+              name="Equipos"
+              parent="menu_inventario_computacion_root"
+              action="action_equipo_computo"
+              sequence="10"/>
+</odoo>
