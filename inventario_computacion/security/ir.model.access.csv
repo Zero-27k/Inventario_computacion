@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_inventario_equipo_computo_user,access_inventario_equipo_computo_user,model_inventario_equipo_computo,base.group_user,1,0,0,0
+access_inventario_equipo_computo_manager,access_inventario_equipo_computo_manager,model_inventario_equipo_computo,base.group_erp_manager,1,1,1,1
